@@ -22,8 +22,8 @@ const usersRouter = require('./routes/users');
 
 // If anyone goes to our base URL/exercises,
 // it will use the exercisesRouter.
-app.use('/exercises', exercisesRouter());
-app.use('/users', usersRouter());
+app.use('/exercises', exercisesRouter);
+app.use('/users', usersRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
