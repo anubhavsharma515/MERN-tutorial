@@ -29,24 +29,22 @@ export default class ExercisesList extends Component {
   }
 
 
-  componentDiDMount() {
-  
-    axios.get('http://localhost:5000/exercises')
-      .then((response) => {
-        this.setState({ response.data })
+  componentDidMount() {
+    axios.get('http://localhost:5000/exercises/')
+      .then(response => {
+        this.setState({ exercises: response.data })
       })
       .catch((error) => {
         console.log(error);
       })
-    }
   }
 
   deleteExercise(id) {
   
-    axios.delete('http://localhost:5000/exercises' +id)
+    axios.delete('http://localhost:5000/exercises/' +id)
       .then(res => console.log(res.data))
     this.setState({
-      exercises: thiss.state.exercises.filter(el => el._id != id);
+      exercises: this.state.exercises.filter(el => el._id != id)
     });
   }
   
